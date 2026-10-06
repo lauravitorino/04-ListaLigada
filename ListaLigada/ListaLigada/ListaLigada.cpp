@@ -148,6 +148,12 @@ void inserirElemento()
 	cout << "Digite o elemento: ";
 	cin >> valor;
 
+	if (posicaoElemento(valor) != NULL)
+	{
+		cout << "Numero ja existente" << endl;
+		return;
+	}
+	
 	// -----------------------------------------------------------------
 	// TAREFA 1: antes de alocar memória, verifique se 'valor' já existe
 	// na lista (dica: use posicaoElemento). Se existir, avise o usuário
@@ -196,6 +202,23 @@ void excluirElemento()
 	// Lembre-se: todo nó removido precisa de free(), e um nó liberado
 	// nunca mais deve ser usado.
 	// -----------------------------------------------------------------
+
+	int valor;
+	int aux;
+	cout << " digite o numero para ser excluido " << endl;
+	cin >> valor;
+
+	while(posicaoElemento(valor) != NULL)
+	{
+			aux = aux->prox;
+	}
+	cout << "elemento nao encontrado" << endl;
+
+
+
+	
+
+ 
 }
 
 void buscarElemento()
@@ -207,6 +230,24 @@ void buscarElemento()
 	// 3. Retorno diferente de NULL -> exiba "ENCONTRADO"
 	//    Retorno igual a NULL     -> exiba "ELEMENTO NAO ENCONTRADO"
 	// -----------------------------------------------------------------
+
+	int valor;
+	cout << "digite um numero a ser buscado: " << endl;
+	cin >> valor;
+
+	NO* pos = posicaoElemento(valor);
+	if (pos != NULL) 
+	{  
+		cout << "encontrado" << endl;
+		return;
+	}
+	else
+	{
+		cout << " nao encontrado" << endl;
+		return;
+	}
+
+	
 }
 
 
