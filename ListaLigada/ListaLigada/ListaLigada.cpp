@@ -204,21 +204,31 @@ void excluirElemento()
 	// -----------------------------------------------------------------
 
 	int valor;
-	int aux;
 	cout << " digite o numero para ser excluido " << endl;
 	cin >> valor;
 
-	while(posicaoElemento(valor) != NULL)
+	NO* atual = posicaoElemento(valor);
+	if (atual == NULL)
 	{
-			aux = aux->prox;
+		cout << "ELEMENTO NAO ENCONTRADO" << endl;
+		return;
 	}
-	cout << "elemento nao encontrado" << endl;
 
+	if (atual == primeiro)
+	{
+		primeiro = primeiro->prox;
+		free(atual);
+		return;
+	}
 
+	NO* anterior = primeiro;
+	while (anterior->prox != atual)
+	{
+		anterior = anterior->prox;
+	}
 
-	
-
- 
+	anterior->prox = atual->prox;
+	free(atual);
 }
 
 void buscarElemento()
